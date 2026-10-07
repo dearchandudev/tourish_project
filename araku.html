@@ -1,0 +1,2461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ARAKU — The Valley of Dreams</title>
+
+<meta name="description"
+content="Explore Araku Valley — mountains, waterfalls, coffee plantations, tribal culture, caves, forests and unforgettable experiences.">
+
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+:root {
+    --green: #123d2b;
+    --dark-green: #08251a;
+    --light-green: #dcead8;
+    --gold: #d9a441;
+    --cream: #f5f1e8;
+    --white: #ffffff;
+    --text: #26332c;
+    --muted: #69756e;
+    --shadow: 0 20px 60px rgba(0,0,0,.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+.container {
+    width: min(1200px, 90%);
+    margin: auto;
+}
+
+.section {
+    padding: 110px 0;
+}
+
+.section-label {
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(38px, 5vw, 68px);
+    line-height: 1.05;
+    color: var(--green);
+}
+
+.section-description {
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 650px;
+    margin-top: 20px;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    padding: 22px 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: white;
+
+    transition: .4s;
+}
+
+.navbar.scrolled {
+    background: rgba(8,37,26,.94);
+    backdrop-filter: blur(18px);
+    padding: 15px 5%;
+}
+
+.logo {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    bottom: -7px;
+    left: 0;
+    transition: .3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    height: 100vh;
+    min-height: 700px;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3,25,17,.85),
+            rgba(3,25,17,.25),
+            rgba(3,25,17,.1)
+        ),
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b")
+        center/cover;
+
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.hero-content {
+    width: min(850px, 90%);
+    margin-left: 8%;
+}
+
+.hero-small {
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: #e5c276;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(65px, 10vw, 150px);
+    line-height: .85;
+    margin-bottom: 30px;
+}
+
+.hero h1 span {
+    color: #dfb65d;
+    font-style: italic;
+}
+
+.hero p {
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #e9eee9;
+}
+
+.hero-buttons {
+    margin-top: 35px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 28px;
+    border-radius: 100px;
+    font-weight: 700;
+    display: inline-block;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: #182719;
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(217,164,65,.3);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,.6);
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--green);
+}
+
+
+/* =========================================================
+   FLOATING HERO STATS
+========================================================= */
+
+.hero-stats {
+    position: absolute;
+    bottom: 40px;
+    right: 6%;
+
+    display: flex;
+    gap: 40px;
+}
+
+.stat {
+    border-left: 1px solid rgba(255,255,255,.4);
+    padding-left: 20px;
+}
+
+.stat strong {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    display: block;
+}
+
+.stat span {
+    font-size: 12px;
+    color: #ddd;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro {
+    background: var(--cream);
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.intro-image {
+    position: relative;
+}
+
+.intro-image img {
+    height: 600px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.image-badge {
+    position: absolute;
+    right: -30px;
+    bottom: 40px;
+
+    background: var(--green);
+    color: white;
+
+    padding: 25px;
+    width: 190px;
+
+    box-shadow: var(--shadow);
+}
+
+.image-badge strong {
+    font-family: "Playfair Display", serif;
+    font-size: 30px;
+    display: block;
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   DESTINATIONS
+========================================================= */
+
+.destinations {
+    background: #f9f7f0;
+}
+
+.destination-grid {
+    margin-top: 60px;
+
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    gap: 20px;
+}
+
+.destination {
+    position: relative;
+    height: 450px;
+    overflow: hidden;
+    color: white;
+    cursor: pointer;
+}
+
+.destination:nth-child(1) {
+    grid-column: span 7;
+}
+
+.destination:nth-child(2) {
+    grid-column: span 5;
+}
+
+.destination:nth-child(3),
+.destination:nth-child(4),
+.destination:nth-child(5) {
+    grid-column: span 4;
+}
+
+.destination img {
+    height: 100%;
+    object-fit: cover;
+    transition: .8s;
+}
+
+.destination:hover img {
+    transform: scale(1.08);
+}
+
+.destination::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 35%,
+            rgba(0,0,0,.85)
+        );
+}
+
+.destination-info {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    z-index: 2;
+}
+
+.destination-number {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.destination h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 34px;
+    margin: 7px 0;
+}
+
+.destination p {
+    color: #ddd;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   EXPERIENCE STRIP
+========================================================= */
+
+.experience {
+    background: var(--green);
+    color: white;
+}
+
+.experience .section-title {
+    color: white;
+}
+
+.experience-grid {
+    margin-top: 60px;
+
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 2px;
+}
+
+.experience-card {
+    padding: 45px 30px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.08);
+    transition: .4s;
+}
+
+.experience-card:hover {
+    background: rgba(217,164,65,.15);
+    transform: translateY(-8px);
+}
+
+.experience-icon {
+    font-size: 42px;
+    margin-bottom: 25px;
+}
+
+.experience-card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.experience-card p {
+    color: #cbd5cf;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   CULTURE
+========================================================= */
+
+.culture {
+    background: #efe8d9;
+}
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.culture-image {
+    position: relative;
+}
+
+.culture-image img {
+    height: 650px;
+    object-fit: cover;
+}
+
+.culture-text h2 {
+    margin-bottom: 25px;
+}
+
+.culture-text p {
+    color: var(--muted);
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.culture-list {
+    margin-top: 35px;
+}
+
+.culture-item {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+
+    display: flex;
+    gap: 20px;
+}
+
+.culture-item span {
+    color: var(--gold);
+    font-size: 24px;
+}
+
+.culture-item h4 {
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   COFFEE SECTION
+========================================================= */
+
+.coffee {
+    min-height: 700px;
+
+    background:
+        linear-gradient(
+            rgba(20,30,20,.65),
+            rgba(20,30,20,.75)
+        ),
+        url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085")
+        center/cover;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+}
+
+.coffee-content {
+    max-width: 650px;
+}
+
+.coffee .section-title {
+    color: white;
+}
+
+.coffee p {
+    margin-top: 25px;
+    line-height: 1.9;
+    color: #e0e5e1;
+}
+
+.coffee-facts {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.coffee-fact strong {
+    font-size: 28px;
+    font-family: "Playfair Display", serif;
+    color: var(--gold);
+    display: block;
+}
+
+.coffee-fact span {
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   TRAIN JOURNEY
+========================================================= */
+
+.train {
+    background: var(--cream);
+}
+
+.train-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.train-image {
+    position: relative;
+}
+
+.train-image img {
+    height: 500px;
+    object-fit: cover;
+}
+
+.train-route {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    right: 25px;
+
+    background: rgba(8,37,26,.9);
+    color: white;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.train-text p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin: 25px 0;
+}
+
+
+/* =========================================================
+   CULTURAL CARDS
+========================================================= */
+
+.traditions {
+    background: #f8f5ed;
+}
+
+.tradition-grid {
+    margin-top: 55px;
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.tradition-card {
+    background: white;
+    padding: 35px;
+    border-radius: 3px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.06);
+}
+
+.tradition-card .symbol {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.tradition-card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    margin-bottom: 12px;
+    color: var(--green);
+}
+
+.tradition-card p {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   FOOD
+========================================================= */
+
+.food {
+    background: var(--dark-green);
+    color: white;
+}
+
+.food .section-title {
+    color: white;
+}
+
+.food-grid {
+    margin-top: 60px;
+
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+.food-card {
+    background: rgba(255,255,255,.06);
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+.food-card img {
+    height: 220px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.food-card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.food-card p {
+    color: #b9c6bd;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   ITINERARY
+========================================================= */
+
+.itinerary {
+    background: #e7e0d2;
+}
+
+.timeline {
+    margin-top: 60px;
+    max-width: 900px;
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 30px;
+
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+.day {
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    color: var(--green);
+}
+
+.timeline-item h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.timeline-item p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   TRAVEL INFO
+========================================================= */
+
+.travel {
+    background: var(--cream);
+}
+
+.travel-grid {
+    margin-top: 55px;
+
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.travel-card {
+    background: white;
+    padding: 35px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.06);
+}
+
+.travel-card .icon {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.travel-card h3 {
+    color: var(--green);
+    margin-bottom: 15px;
+}
+
+.travel-card p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery {
+    padding-bottom: 0;
+}
+
+.gallery-grid {
+    margin-top: 50px;
+
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-auto-rows: 260px;
+    gap: 8px;
+}
+
+.gallery-item {
+    overflow: hidden;
+}
+
+.gallery-item:nth-child(1) {
+    grid-row: span 2;
+}
+
+.gallery-item:nth-child(4) {
+    grid-column: span 2;
+}
+
+.gallery-item img {
+    height: 100%;
+    object-fit: cover;
+    transition: .7s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+    margin-top: 100px;
+    padding: 120px 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(8,37,26,.82),
+            rgba(8,37,26,.82)
+        ),
+        url("https://images.unsplash.com/photo-1500534623283-312aade485b7")
+        center/cover;
+
+    color: white;
+}
+
+.cta h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(45px,6vw,80px);
+    margin-bottom: 20px;
+}
+
+.cta p {
+    color: #dce4de;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: #051b12;
+    color: white;
+    padding: 70px 0 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 50px;
+    padding-bottom: 50px;
+}
+
+.footer-logo {
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.footer-about {
+    color: #9eafa4;
+    line-height: 1.8;
+    max-width: 350px;
+}
+
+footer h4 {
+    margin-bottom: 20px;
+    color: var(--gold);
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer li {
+    margin-bottom: 12px;
+    color: #aab7af;
+    font-size: 14px;
+}
+
+.copyright {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 25px;
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #819087;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width: 1000px) {
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+
+        width: 280px;
+        height: calc(100vh - 70px);
+
+        background: var(--dark-green);
+
+        flex-direction: column;
+        padding: 40px;
+
+        transition: .4s;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .intro-grid,
+    .culture-grid,
+    .train-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .food-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .travel-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+@media(max-width: 700px) {
+
+    .section {
+        padding: 75px 0;
+    }
+
+    .hero-content {
+        margin-left: 5%;
+    }
+
+    .hero h1 {
+        font-size: 65px;
+    }
+
+    .hero-stats {
+        display: none;
+    }
+
+    .destination-grid {
+        display: block;
+    }
+
+    .destination {
+        margin-bottom: 15px;
+        height: 380px;
+    }
+
+    .experience-grid,
+    .tradition-grid,
+    .food-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 220px;
+    }
+
+    .gallery-item:nth-child(4) {
+        grid-column: span 1;
+    }
+
+    .timeline-item {
+        grid-template-columns: 80px 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .copyright {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="navbar">
+
+    <a href="#home" class="logo">
+        ARAKU<span>.</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+
+        <li><a href="#home">Home</a></li>
+        <li><a href="#places">Places</a></li>
+        <li><a href="#culture">Culture</a></li>
+        <li><a href="#coffee">Coffee</a></li>
+        <li><a href="#food">Food</a></li>
+        <li><a href="#plan">Plan Trip</a></li>
+
+    </ul>
+
+    <div class="menu-btn" id="menuBtn">
+        ☰
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            Eastern Ghats • Andhra Pradesh
+        </div>
+
+        <h1>
+            Welcome<br>
+            to <span>Araku.</span>
+        </h1>
+
+        <p>
+            Where mist touches the mountains, waterfalls
+            meet ancient forests, and every road tells a story.
+            Discover one of India's most beautiful valley escapes.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#places" class="btn btn-primary">
+                Explore the Valley →
+            </a>
+
+            <a href="#culture" class="btn btn-outline">
+                Discover the Culture
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-stats">
+
+        <div class="stat">
+            <strong>Eastern</strong>
+            <span>Ghats</span>
+        </div>
+
+        <div class="stat">
+            <strong>Tribal</strong>
+            <span>Heritage</span>
+        </div>
+
+        <div class="stat">
+            <strong>Organic</strong>
+            <span>Coffee</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="section intro">
+
+    <div class="container intro-grid">
+
+        <div class="intro-image reveal">
+
+            <img
+            src="https://images.unsplash.com/photo-1500534623283-312aade485b7"
+            alt="Araku Valley landscape">
+
+            <div class="image-badge">
+
+                <strong>ARAKU</strong>
+
+                <span>
+                    Valley of mountains,
+                    forests & memories.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="reveal">
+
+            <div class="section-label">
+                The Valley
+            </div>
+
+            <h2 class="section-title">
+                A journey beyond the ordinary.
+            </h2>
+
+            <p class="section-description">
+
+                Araku Valley is a scenic hill destination in the
+                Eastern Ghats of Andhra Pradesh. Green mountains,
+                coffee plantations, waterfalls, caves and tribal
+                heritage come together to create a destination
+                that feels completely different from city life.
+
+            </p>
+
+            <p class="section-description">
+
+                The journey to Araku is itself an experience —
+                especially the famous mountain railway route,
+                with tunnels, bridges, forests and dramatic
+                valley views.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TOURIST PLACES
+===================================================== -->
+
+<section class="section destinations" id="places">
+
+    <div class="container">
+
+        <div class="section-label">
+            Places to Explore
+        </div>
+
+        <h2 class="section-title">
+            The many faces<br>of Araku.
+        </h2>
+
+        <p class="section-description">
+            From mysterious caves and dramatic waterfalls to
+            peaceful coffee plantations and tribal museums,
+            Araku offers experiences for every kind of traveller.
+        </p>
+
+
+        <div class="destination-grid">
+
+
+            <!-- BORRA CAVES -->
+
+            <article class="destination reveal">
+
+                <img
+                src="https://images.unsplash.com/photo-1500534623283-312aade485b7"
+                alt="Borra Caves">
+
+                <div class="destination-info">
+
+                    <div class="destination-number">
+                        01 / CAVES
+                    </div>
+
+                    <h3>Borra Caves</h3>
+
+                    <p>
+                        Explore fascinating natural cave formations
+                        hidden inside the Eastern Ghats.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- KATIKI -->
+
+            <article class="destination reveal">
+
+                <img
+                src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9"
+                alt="Waterfall">
+
+                <div class="destination-info">
+
+                    <div class="destination-number">
+                        02 / WATERFALL
+                    </div>
+
+                    <h3>Katiki Waterfalls</h3>
+
+                    <p>
+                        A beautiful forest waterfall surrounded
+                        by lush green landscapes.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- CHAPARAI -->
+
+            <article class="destination reveal">
+
+                <img
+                src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e"
+                alt="Forest">
+
+                <div class="destination-info">
+
+                    <div class="destination-number">
+                        03 / NATURE
+                    </div>
+
+                    <h3>Chaparai</h3>
+
+                    <p>
+                        Natural rock formations and flowing
+                        water create a relaxing escape.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- MUSEUM -->
+
+            <article class="destination reveal">
+
+                <img
+                src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0"
+                alt="Tribal culture">
+
+                <div class="destination-info">
+
+                    <div class="destination-number">
+                        04 / HERITAGE
+                    </div>
+
+                    <h3>Tribal Museum</h3>
+
+                    <p>
+                        Discover the traditions, crafts,
+                        lifestyle and history of local communities.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- COFFEE -->
+
+            <article class="destination reveal">
+
+                <img
+                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"
+                alt="Coffee plantation">
+
+                <div class="destination-info">
+
+                    <div class="destination-number">
+                        05 / COFFEE
+                    </div>
+
+                    <h3>Coffee Plantations</h3>
+
+                    <p>
+                        Walk through lush plantations and
+                        experience Araku's famous coffee culture.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EXPERIENCES
+===================================================== -->
+
+<section class="section experience">
+
+    <div class="container">
+
+        <div class="section-label">
+            Experience Araku
+        </div>
+
+        <h2 class="section-title">
+            Don't just visit.<br>
+            Experience it.
+        </h2>
+
+
+        <div class="experience-grid">
+
+            <div class="experience-card reveal">
+
+                <div class="experience-icon">🏔️</div>
+
+                <h3>Mountain Trails</h3>
+
+                <p>
+                    Explore the Eastern Ghats through scenic
+                    trails and peaceful viewpoints.
+                </p>
+
+            </div>
+
+
+            <div class="experience-card reveal">
+
+                <div class="experience-icon">☕</div>
+
+                <h3>Coffee Experience</h3>
+
+                <p>
+                    Discover how coffee is grown, harvested
+                    and processed in the valley.
+                </p>
+
+            </div>
+
+
+            <div class="experience-card reveal">
+
+                <div class="experience-icon">🚂</div>
+
+                <h3>Train Journey</h3>
+
+                <p>
+                    Experience one of India's most scenic
+                    railway journeys through the mountains.
+                </p>
+
+            </div>
+
+
+            <div class="experience-card reveal">
+
+                <div class="experience-icon">📸</div>
+
+                <h3>Photography</h3>
+
+                <p>
+                    Capture misty mountains, forests,
+                    waterfalls and village landscapes.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TRIBAL CULTURE
+===================================================== -->
+
+<section class="section culture" id="culture">
+
+    <div class="container culture-grid">
+
+
+        <div class="culture-image reveal">
+
+            <img
+            src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0"
+            alt="Tribal culture">
+
+        </div>
+
+
+        <div class="culture-text reveal">
+
+            <div class="section-label">
+                People & Heritage
+            </div>
+
+            <h2 class="section-title">
+                A culture rooted in the forest.
+            </h2>
+
+            <p>
+
+                Araku is home to several tribal communities whose
+                lives and traditions have developed closely with
+                the surrounding forests and mountains.
+
+            </p>
+
+            <p>
+
+                Their traditional knowledge, crafts, agriculture,
+                music, dance, food and community life form an
+                important part of the cultural identity of the valley.
+
+            </p>
+
+
+            <div class="culture-list">
+
+
+                <div class="culture-item">
+
+                    <span>01</span>
+
+                    <div>
+
+                        <h4>Traditional Lifestyle</h4>
+
+                        <p>
+                            Community-oriented living closely
+                            connected with nature and agriculture.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="culture-item">
+
+                    <span>02</span>
+
+                    <div>
+
+                        <h4>Traditional Arts</h4>
+
+                        <p>
+                            Handicrafts, textiles, ornaments and
+                            locally inspired artwork.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="culture-item">
+
+                    <span>03</span>
+
+                    <div>
+
+                        <h4>Dance & Music</h4>
+
+                        <p>
+                            Group performances, traditional music
+                            and community celebrations.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="culture-item">
+
+                    <span>04</span>
+
+                    <div>
+
+                        <h4>Nature Knowledge</h4>
+
+                        <p>
+                            Generations of knowledge connected
+                            to forests, farming and local ecology.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     COFFEE
+===================================================== -->
+
+<section class="coffee" id="coffee">
+
+    <div class="container">
+
+        <div class="coffee-content reveal">
+
+            <div class="section-label">
+                Araku Coffee
+            </div>
+
+            <h2 class="section-title">
+                Taste the mountains.
+            </h2>
+
+            <p>
+
+                Coffee is one of the defining experiences of
+                Araku Valley. The region's highland environment,
+                shade-grown plantations and local farming
+                traditions have helped create its distinctive
+                coffee identity.
+
+            </p>
+
+            <p>
+
+                A visit to Araku isn't complete without exploring
+                its coffee culture — from plantations to roasting
+                and, of course, enjoying a fresh cup.
+
+            </p>
+
+
+            <div class="coffee-facts">
+
+                <div class="coffee-fact">
+
+                    <strong>01</strong>
+                    <span>Plantations</span>
+
+                </div>
+
+                <div class="coffee-fact">
+
+                    <strong>02</strong>
+                    <span>Local Farmers</span>
+
+                </div>
+
+                <div class="coffee-fact">
+
+                    <strong>03</strong>
+                    <span>Coffee Culture</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TRAIN JOURNEY
+===================================================== -->
+
+<section class="section train">
+
+    <div class="container train-grid">
+
+
+        <div class="train-image reveal">
+
+            <img
+            src="https://images.unsplash.com/photo-1474487548417-781cb71495f3"
+            alt="Mountain train">
+
+            <div class="train-route">
+
+                <span>Visakhapatnam</span>
+
+                <span>→</span>
+
+                <strong>Araku</strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="train-text reveal">
+
+            <div class="section-label">
+                The Journey
+            </div>
+
+            <h2 class="section-title">
+                The road to Araku is part of the story.
+            </h2>
+
+            <p>
+
+                Travelling toward Araku through the Eastern Ghats
+                can be as memorable as the destination itself.
+                The railway route is famous for its mountain
+                landscapes, tunnels, bridges and changing scenery.
+
+            </p>
+
+            <p>
+
+                Sit beside the window, slow down and watch the
+                landscape transform from city surroundings into
+                forests and mountains.
+
+            </p>
+
+            <a href="#plan" class="btn btn-primary">
+                Plan Your Journey →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TRADITIONS
+===================================================== -->
+
+<section class="section traditions">
+
+    <div class="container">
+
+        <div class="section-label">
+            Culture & Traditions
+        </div>
+
+        <h2 class="section-title">
+            Stories passed<br>
+            from generation to generation.
+        </h2>
+
+
+        <div class="tradition-grid">
+
+
+            <div class="tradition-card reveal">
+
+                <div class="symbol">🎭</div>
+
+                <h3>Community Dance</h3>
+
+                <p>
+                    Traditional group dances are an important
+                    part of cultural gatherings and celebrations
+                    in tribal communities.
+                </p>
+
+            </div>
+
+
+            <div class="tradition-card reveal">
+
+                <div class="symbol">🌾</div>
+
+                <h3>Agriculture</h3>
+
+                <p>
+                    Farming and forest-based livelihoods have
+                    traditionally played an important role in
+                    community life.
+                </p>
+
+            </div>
+
+
+            <div class="tradition-card reveal">
+
+                <div class="symbol">🧺</div>
+
+                <h3>Handicrafts</h3>
+
+                <p>
+                    Local crafts and handmade products reflect
+                    traditional skills, creativity and cultural
+                    identity.
+                </p>
+
+            </div>
+
+
+            <div class="tradition-card reveal">
+
+                <div class="symbol">🌿</div>
+
+                <h3>Forest Connection</h3>
+
+                <p>
+                    Traditional ecological knowledge connects
+                    people with the plants, forests and landscapes
+                    around them.
+                </p>
+
+            </div>
+
+
+            <div class="tradition-card reveal">
+
+                <div class="symbol">🥁</div>
+
+                <h3>Music</h3>
+
+                <p>
+                    Traditional instruments and rhythmic music
+                    are closely connected with festivals and
+                    community events.
+                </p>
+
+            </div>
+
+
+            <div class="tradition-card reveal">
+
+                <div class="symbol">🏡</div>
+
+                <h3>Village Life</h3>
+
+                <p>
+                    Village communities provide an opportunity
+                    to understand local lifestyles and traditions
+                    respectfully.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOD
+===================================================== -->
+
+<section class="section food" id="food">
+
+    <div class="container">
+
+        <div class="section-label">
+            Taste Araku
+        </div>
+
+        <h2 class="section-title">
+            Food with a sense of place.
+        </h2>
+
+        <p class="section-description"
+           style="color:#b9c6bd;">
+            Discover regional flavours and ingredients while
+            exploring the valley.
+        </p>
+
+
+        <div class="food-grid">
+
+
+            <div class="food-card reveal">
+
+                <img
+                src="https://images.unsplash.com/photo-1547592180-85f173990554"
+                alt="Traditional food">
+
+                <h3>Local Cuisine</h3>
+
+                <p>
+                    Explore regional Andhra flavours and
+                    locally prepared dishes.
+                </p>
+
+            </div>
+
+
+            <div class="food-card reveal">
+
+                <img
+                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"
+                alt="Coffee">
+
+                <h3>Araku Coffee</h3>
+
+                <p>
+                    Enjoy locally grown coffee while learning
+                    about the valley's coffee culture.
+                </p>
+
+            </div>
+
+
+            <div class="food-card reveal">
+
+                <img
+                src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f"
+                alt="Vegetarian food">
+
+                <h3>Vegetarian Flavours</h3>
+
+                <p>
+                    Seasonal vegetables and locally available
+                    ingredients feature in many regional meals.
+                </p>
+
+            </div>
+
+
+            <div class="food-card reveal">
+
+                <img
+                src="https://images.unsplash.com/photo-1601050690597-df0568f70950"
+                alt="Snacks">
+
+                <h3>Local Snacks</h3>
+
+                <p>
+                    Try regional snacks and small bites during
+                    your exploration of Araku.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ITINERARY
+===================================================== -->
+
+<section class="section itinerary" id="plan">
+
+    <div class="container">
+
+        <div class="section-label">
+            Suggested Journey
+        </div>
+
+        <h2 class="section-title">
+            A 3-day Araku story.
+        </h2>
+
+        <p class="section-description">
+
+            A sample itinerary for travellers who want to combine
+            nature, culture, sightseeing and relaxation.
+
+        </p>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item reveal">
+
+                <div class="day">
+                    DAY 01
+                </div>
+
+                <div>
+
+                    <h3>
+                        The Scenic Arrival
+                    </h3>
+
+                    <p>
+                        Travel toward Araku through the Eastern Ghats.
+                        Check in, relax and explore the valley around
+                        sunset.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="day">
+                    DAY 02
+                </div>
+
+                <div>
+
+                    <h3>
+                        Caves • Waterfalls • Nature
+                    </h3>
+
+                    <p>
+                        Explore Borra Caves, nearby natural attractions
+                        and waterfalls. Spend the evening enjoying the
+                        cool valley atmosphere.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item reveal">
+
+                <div class="day">
+                    DAY 03
+                </div>
+
+                <div>
+
+                    <h3>
+                        Culture • Coffee • Memories
+                    </h3>
+
+                    <p>
+                        Visit the Tribal Museum, experience local culture,
+                        explore coffee-related attractions and finish the
+                        trip with a relaxed valley experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TRAVEL INFORMATION
+===================================================== -->
+
+<section class="section travel">
+
+    <div class="container">
+
+        <div class="section-label">
+            Travel Smart
+        </div>
+
+        <h2 class="section-title">
+            Before you go.
+        </h2>
+
+
+        <div class="travel-grid">
+
+
+            <div class="travel-card reveal">
+
+                <div class="icon">🚆</div>
+
+                <h3>By Train</h3>
+
+                <p>
+                    The rail route through the Eastern Ghats is
+                    one of the most memorable ways to approach
+                    the valley.
+                </p>
+
+            </div>
+
+
+            <div class="travel-card reveal">
+
+                <div class="icon">🚗</div>
+
+                <h3>By Road</h3>
+
+                <p>
+                    Road travel offers beautiful mountain views.
+                    Check current road conditions before travelling.
+                </p>
+
+            </div>
+
+
+            <div class="travel-card reveal">
+
+                <div class="icon">🌤️</div>
+
+                <h3>Weather</h3>
+
+                <p>
+                    The valley is generally cooler than the
+                    coastal plains. Carry comfortable clothing
+                    and rain protection when appropriate.
+                </p>
+
+            </div>
+
+
+            <div class="travel-card reveal">
+
+                <div class="icon">🎒</div>
+
+                <h3>What to Carry</h3>
+
+                <p>
+                    Comfortable shoes, water, sunscreen,
+                    light clothing and a small backpack are
+                    useful for sightseeing.
+                </p>
+
+            </div>
+
+
+            <div class="travel-card reveal">
+
+                <div class="icon">📷</div>
+
+                <h3>Photography</h3>
+
+                <p>
+                    Keep your camera ready for mountains,
+                    waterfalls, forests, villages and misty
+                    landscapes.
+                </p>
+
+            </div>
+
+
+            <div class="travel-card reveal">
+
+                <div class="icon">🤝</div>
+
+                <h3>Respect Local Culture</h3>
+
+                <p>
+                    Ask before photographing people, respect
+                    local customs and avoid disturbing sacred
+                    or community spaces.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     GALLERY
+===================================================== -->
+
+<section class="gallery">
+
+    <div class="container">
+
+        <div class="section-label">
+            Visual Journey
+        </div>
+
+        <h2 class="section-title">
+            See the valley.
+        </h2>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <img
+            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b"
+            alt="Mountain landscape">
+        </div>
+
+        <div class="gallery-item">
+            <img
+            src="https/images.unsplash.com/photo-1441974231531-c6227db76b6e"
+            alt="Forest">:/
+        </div>
+
+        <div class="gallery-item">
+            <img
+            src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9"
+            alt="Waterfall">
+        </div>
+
+        <div class="gallery-item">
+            <img
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085"
+            alt="Coffee">
+        </div>
+
+        <div class="gallery-item">
+            <img
+            src="https://images.unsplash.com/photo-1500534623283-312aade485b7"
+            alt="Valley">
+        </div>
+
+        <div class="gallery-item">
+            <img
+            src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0"
+            alt="Culture">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+    <div class="reveal">
+
+        <div class="section-label">
+            Your Araku Story Starts Here
+        </div>
+
+        <h2>
+            Leave the city.<br>
+            Find the valley.
+        </h2>
+
+        <p>
+            Mountains are waiting. Forests are calling.
+            And somewhere between the clouds and coffee,
+            you'll find Araku.
+        </p>
+
+        <br>
+
+        <a href="#home" class="btn btn-primary">
+            Begin Your Journey ↑
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <div class="footer-logo">
+                    ARAKU.
+                </div>
+
+                <p class="footer-about">
+
+                    A premium digital travel guide celebrating
+                    the landscapes, culture, coffee and people
+                    of Araku Valley.
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>Explore</h4>
+
+                <ul>
+
+                    <li><a href="#places">Tourist Places</a></li>
+                    <li><a href="#culture">Culture</a></li>
+                    <li><a href="#coffee">Coffee</a></li>
+                    <li><a href="#food">Food</a></li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>Experiences</h4>
+
+                <ul>
+
+                    <li>Mountain Trails</li>
+                    <li>Waterfalls</li>
+                    <li>Caves</li>
+                    <li>Train Journey</li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>Travel</h4>
+
+                <ul>
+
+                    <li><a href="#plan">Itinerary</a></li>
+                    <li>Travel Tips</li>
+                    <li>Photography</li>
+                    <li>Local Culture</li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            <span>
+                © 2026 ARAKU VALLEY TOURISM
+            </span>
+
+            <span>
+                Explore • Respect • Experience
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =========================
+   NAVBAR SCROLL EFFECT
+========================= */
+
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 60) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+
+});
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+});
+
+
+/* Close mobile menu after clicking */
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+
+    reveals.forEach(element => {
+
+        const windowHeight = window.innerHeight;
+
+        const elementTop =
+            element.getBoundingClientRect().top;
+
+        const revealPoint = 120;
+
+        if (elementTop < windowHeight - revealPoint) {
+
+            element.classList.add("active");
+
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+revealOnScroll();
+
+
+/* =========================
+   SMOOTH ANCHOR SCROLL
+========================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    anchor.addEventListener("click", function(e) {
+
+        const target =
+            document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
+
+});
+
+</script>
+
+
+</body>
+</html>

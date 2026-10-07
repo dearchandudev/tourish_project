@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>మన ఊరి గణేష్ ఉత్సవం</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        div{
+            text-align: center;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Noto Sans Telugu", sans-serif;
+            background: #fff8ed;
+            color: #3b2415;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 14px 7%;
+
+            background: rgba(62, 28, 8, 0.88);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 2px solid rgba(255, 193, 7, 0.5);
+        }
+
+        .logo {
+            color: #ffd54f;
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd54f;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(28, 13, 3, .35),
+                    rgba(28, 13, 3, .65)
+                ),
+                url("villa2.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            padding: 100px 20px 50px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            color: white;
+            animation: fadeUp 1.2s ease;
+        }
+
+        .om {
+            font-size: 70px;
+            color: #ffd54f;
+            text-shadow: 0 0 25px #ff9800;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 7vw, 75px);
+            font-weight: 800;
+
+            color: #fff;
+
+            text-shadow:
+                3px 3px 0 #7b2d00,
+                0 0 25px rgba(255, 152, 0, .8);
+        }
+
+        .hero h2 {
+            margin-top: 12px;
+            font-size: clamp(20px, 4vw, 32px);
+            color: #ffd54f;
+        }
+
+        .hero p {
+            margin: 20px auto;
+            max-width: 700px;
+            font-size: 18px;
+            line-height: 1.9;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 87, 34, .4);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,.15);
+            border: 1px solid white;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px) scale(1.03);
+        }
+
+        /* =========================
+           SECTION
+        ========================== */
+
+        section {
+            padding: 85px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title small {
+            color: #e65100;
+            font-weight: 700;
+        }
+
+        .section-title h2 {
+            margin-top: 5px;
+            font-size: 40px;
+            color: #5d2a0c;
+        }
+
+        .section-title p {
+            margin-top: 10px;
+            color: #795548;
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about {
+            background: #fff8ed;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            display: block;
+
+            border-radius: 25px;
+
+            box-shadow: 0 20px 50px rgba(78, 43, 14, .25);
+        }
+
+        .image-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+
+            background: #ff9800;
+            color: white;
+
+            padding: 12px 20px;
+            border-radius: 15px;
+
+            font-weight: 700;
+        }
+
+        .about-text h3 {
+            font-size: 32px;
+            color: #7b2d00;
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            font-size: 17px;
+            line-height: 2;
+            margin-bottom: 15px;
+        }
+
+        /* =========================
+           FESTIVAL IMAGE
+        ========================== */
+
+        .festival-section {
+            position: relative;
+            background:
+                linear-gradient(
+                    rgba(55, 18, 2, .78),
+                    rgba(55, 18, 2, .88)
+                ),
+                url("festival.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+        }
+
+        .festival-section .section-title h2,
+        .festival-section .section-title p,
+        .festival-section .section-title small {
+            color: white;
+        }
+
+        .festival-grid {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .festival-photo img {
+            width: 100%;
+            border-radius: 25px;
+
+            border: 5px solid rgba(255,255,255,.7);
+
+            box-shadow: 0 20px 50px rgba(0,0,0,.5);
+        }
+
+        .festival-content h3 {
+            color: #ffd54f;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .festival-content p {
+            line-height: 2;
+            font-size: 17px;
+        }
+
+        /* =========================
+           EVENTS
+        ========================== */
+
+        .events {
+            background: #fff;
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .event-card {
+            padding: 30px 25px;
+
+            border-radius: 20px;
+
+            background: linear-gradient(
+                145deg,
+                #fffaf1,
+                #ffe8c2
+            );
+
+            border: 1px solid #ffd180;
+
+            text-align: center;
+
+            transition: .35s;
+
+            box-shadow: 0 8px 25px rgba(100, 50, 0, .08);
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 35px rgba(100, 50, 0, .18);
+        }
+
+        .event-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .event-card h3 {
+            color: #7b2d00;
+            margin-bottom: 10px;
+        }
+
+        .event-card p {
+            line-height: 1.8;
+            color: #6d4c41;
+        }
+
+        /* =========================
+           VILLAGE LIFE
+        ========================== */
+
+        .village {
+            background: #f4ffe9;
+        }
+
+        .village-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .village-card {
+            text-align: center;
+            padding: 25px 15px;
+
+            background: white;
+
+            border-radius: 18px;
+
+            box-shadow: 0 8px 20px rgba(40, 90, 20, .08);
+
+            border-bottom: 4px solid #7cb342;
+        }
+
+        .village-card .icon {
+            font-size: 45px;
+        }
+
+        .village-card h3 {
+            margin-top: 10px;
+            color: #33691e;
+        }
+
+        /* =========================
+           COUNTDOWN
+        ========================== */
+
+        .countdown-section {
+            background: linear-gradient(
+                135deg,
+                #8e2400,
+                #e65100,
+                #ff9800
+            );
+
+            color: white;
+            text-align: center;
+        }
+
+        .countdown-section h2 {
+            font-size: 40px;
+        }
+
+        .countdown {
+            margin-top: 30px;
+
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .time-box {
+            min-width: 120px;
+            padding: 20px;
+
+            border-radius: 15px;
+
+            background: rgba(255,255,255,.15);
+            backdrop-filter: blur(5px);
+        }
+
+        .time-box strong {
+            display: block;
+            font-size: 38px;
+            color: #fff;
+        }
+
+        .time-box span {
+            font-size: 14px;
+        }
+
+        /* =========================
+           GALLERY
+        ========================== */
+
+        .gallery {
+            background: #fff8ed;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 20px;
+            height: 300px;
+        }
+
+        .gallery-item.large {
+            height: 400px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #291105;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer .ganesh {
+            font-size: 45px;
+        }
+
+        footer h2 {
+            color: #ffd54f;
+            margin: 10px 0;
+        }
+
+        footer p {
+            color: #d7ccc8;
+        }
+
+        /* =========================
+           ANIMATION
+        ========================== */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media(max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-grid,
+            .festival-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .event-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .village-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media(max-width: 600px) {
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .hero {
+                min-height: 90vh;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .event-grid,
+            .village-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item,
+            .gallery-item.large {
+                height: 300px;
+            }
+
+            .countdown {
+                gap: 10px;
+            }
+
+            .time-box {
+                min-width: 90px;
+            }
+
+        }
+        
+       
+    </style>
+</head>
+
+<body>
+    <img src="village.html" alt="village.html"> 
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🪔 మన ఊరి <span>గణేష్</span>
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#home">హోమ్</a>
+            </li>
+
+            <li>
+                <a href="#about">మన ఊరు</a>
+            </li>
+
+            <li>
+                <a href="#festival">ఉత్సవం</a>
+            </li>
+
+            <li>
+                <a href="#events">కార్యక్రమాలు</a>
+            </li>
+
+            <li>
+                <a href="#gallery">గ్యాలరీ</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <header class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="om">ॐ</div>
+
+            <h1>
+                శ్రీ గణేశాయ నమః
+            </h1>
+
+            <h2>
+                మన ఊరి గణేష్ మహోత్సవం
+            </h2>
+
+            <p>
+                పచ్చని పొలాలు... ప్రశాంతమైన చెరువు...
+                మట్టి వాసనతో నిండిన మన పల్లె...
+                అందరి మనసులను ఒక్కటిగా చేసే
+                మన గణేష్ ఉత్సవ సంబరాలు.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#festival" class="btn btn-primary">
+                    ఉత్సవ వివరాలు
+                </a>
+
+                <a href="#events" class="btn btn-secondary">
+                    కార్యక్రమాలు
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         ABOUT VILLAGE
+    ========================== -->
+
+    <section class="about" id="about">
+
+        <div class="section-title">
+
+            <small>🌾 మన పల్లె</small>
+
+            <h2>
+                మన ఊరి అందాలు
+            </h2>
+
+            <p>
+                ప్రకృతితో కలిసి జీవించే మన గ్రామ జీవనం
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-image">
+
+                <img src="villa2.jpg"
+                     alt="మన గ్రామం">
+
+                <div class="image-badge">
+                    🌴 మా పల్లె – మా గర్వం
+                </div>
+
+            </div>
+
+
+            <div class="about-text">
+
+                <h3>
+                    🌾 పచ్చని పొలాల మధ్య మన ఊరు
+                </h3>
+
+                <p>
+                    కొబ్బరి చెట్లతో, పచ్చని పంట పొలాలతో,
+                    చిన్న చిన్న ఇళ్లతో, చెరువు గట్లతో
+                    మన ఊరు ఎంతో అందంగా ఉంటుంది.
+                </p>
+
+                <p>
+                    పండుగ సమయాల్లో ప్రతి ఇంటి ముందు
+                    ముగ్గులు, దీపాలు, తోరణాలు కనిపిస్తాయి.
+                    చిన్నవాళ్ల నుంచి పెద్దవాళ్ల వరకు
+                    అందరూ కలిసి పండుగను జరుపుకుంటారు.
+                </p>
+
+                <p>
+                    గణేష్ ఉత్సవం మన ఊరిలో
+                    భక్తితో పాటు ఐక్యతను కూడా పెంచే
+                    ఒక గొప్ప సంబరం.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GANESH FESTIVAL
+    ========================== -->
+
+    <section class="festival-section" id="festival">
+
+        <div class="section-title">
+
+            <small>🙏 భక్తి • ఆనందం • ఐక్యత</small>
+
+            <h2>
+                గణేష్ మహోత్సవం
+            </h2>
+
+            <p>
+                భక్తి శ్రద్ధలతో వినాయకుడిని ఆహ్వానిద్దాం
+            </p>
+
+        </div>
+
+
+        <div class="festival-grid">
+
+            <div class="festival-photo">
+
+                <img src="festival.jpg"
+                     alt="గణేష్ ఉత్సవం">
+
+            </div>
+
+
+            <div class="festival-content">
+
+                <h3>
+                    🐘 గణపతి బప్పా మోరియా!
+                </h3>
+
+                <p>
+                    మన ఊరి గణేష్ ఉత్సవం అంటే
+                    కేవలం ఒక పండుగ కాదు.
+                    ప్రతి ఇంటి నుంచి ప్రతి మనిషి
+                    కలిసి ఆనందంగా జరుపుకునే
+                    ఒక గొప్ప సామూహిక వేడుక.
+                </p>
+
+                <br>
+
+                <p>
+                    డప్పుల మోతలు, భక్తి పాటలు,
+                    రంగురంగుల అలంకరణలు,
+                    పూలతో అలంకరించిన వినాయక విగ్రహం,
+                    పిల్లల సందడి...
+                    ఊరంతా పండుగ వాతావరణంతో
+                    కళకళలాడుతుంది.
+                </p>
+
+                <br>
+
+                <p>
+                    చివరగా అందరూ కలిసి
+                    గణపతి నిమజ్జన ఊరేగింపులో
+                    పాల్గొని భక్తి శ్రద్ధలతో
+                    వినాయకుడికి వీడ్కోలు పలుకుతారు.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EVENTS
+    ========================== -->
+
+    <section class="events" id="events">
+
+        <div class="section-title">
+
+            <small>🎉 పండుగ కార్యక్రమాలు</small>
+
+            <h2>
+                ఉత్సవ ప్రత్యేక కార్యక్రమాలు
+            </h2>
+
+            <p>
+                అందరం కలిసి ఆనందంగా జరుపుకుందాం
+            </p>
+
+        </div>
+
+
+        <div class="event-grid">
+
+            <div class="event-card">
+
+                <div class="event-icon">
+                    🐘
+                </div>
+
+                <h3>
+                    గణేష్ ప్రతిష్ఠ
+                </h3>
+
+                <p>
+                    మంగళ వాయిద్యాలతో
+                    వినాయకుడిని ఘనంగా
+                    మండపంలో ప్రతిష్ఠించడం.
+                </p>
+
+            </div>
+
+
+            <div class="event-card">
+
+                <div class="event-icon">
+                    🥁
+                </div>
+
+                <h3>
+                    డప్పుల సంబరం
+                </h3>
+
+                <p>
+                    డప్పులు, బ్యాండ్,
+                    భక్తి గీతాలతో
+                    ఊరంతా సందడిగా మారుతుంది.
+                </p>
+
+            </div>
+
+
+            <div class="event-card">
+
+                <div class="event-icon">
+                    🪔
+                </div>
+
+                <h3>
+                    ప్రత్యేక పూజ
+                </h3>
+
+                <p>
+                    ప్రతిరోజూ ఉదయం,
+                    సాయంత్రం గణపతికి
+                    ప్రత్యేక పూజలు.
+                </p>
+
+            </div>
+
+
+            <div class="event-card">
+
+                <div class="event-icon">
+                    🍚
+                </div>
+
+                <h3>
+                    అన్నదానం
+                </h3>
+
+                <p>
+                    గ్రామ ప్రజలందరికీ
+                    ప్రేమతో ప్రసాదం
+                    మరియు అన్నదానం.
+                </p>
+
+            </div>
+
+
+            <div class="event-card">
+
+                <div class="event-icon">
+                    🎤
+                </div>
+
+                <h3>
+                    సాంస్కృతిక కార్యక్రమాలు
+                </h3>
+
+                <p>
+                    పిల్లలు, యువత కోసం
+                    పాటలు, నృత్యాలు,
+                    సాంస్కృతిక కార్యక్రమాలు.
+                </p>
+
+            </div>
+
+
+            <div class="event-card">
+
+                <div class="event-icon">
+                    🌊
+                </div>
+
+                <h3>
+                    నిమజ్జన ఊరేగింపు
+                </h3>
+
+                <p>
+                    ఘనమైన ఊరేగింపుతో
+                    వినాయకుడికి
+                    భక్తితో వీడ్కోలు.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         VILLAGE LIFE
+    ========================== -->
+
+    <section class="village">
+
+        <div class="section-title">
+
+            <small>❤️ మన గ్రామం</small>
+
+            <h2>
+                మన ఊరి ప్రత్యేకత
+            </h2>
+
+        </div>
+
+
+        <div class="village-grid">
+
+            <div class="village-card">
+
+                <div class="icon">🌾</div>
+
+                <h3>
+                    పచ్చని పొలాలు
+                </h3>
+
+            </div>
+
+
+            <div class="village-card">
+
+                <div class="icon">🌴</div>
+
+                <h3>
+                    కొబ్బరి చెట్లు
+                </h3>
+
+            </div>
+
+
+            <div class="village-card">
+
+                <div class="icon">🏡</div>
+
+                <h3>
+                    పల్లె ఇళ్లు
+                </h3>
+
+            </div>
+
+
+            <div class="village-card">
+
+                <div class="icon">🤝</div>
+
+                <h3>
+                    గ్రామ ఐక్యత
+                </h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         COUNTDOWN
+    ========================== -->
+
+    <section class="countdown-section">
+
+        <h2>
+            🐘 గణేష్ ఉత్సవానికి ఇంకా...
+        </h2>
+
+        <div class="countdown">
+
+            <div class="time-box">
+                <strong id="days">00</strong>
+                <span>రోజులు</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="hours">00</strong>
+                <span>గంటలు</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="minutes">00</strong>
+                <span>నిమిషాలు</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="seconds">00</strong>
+                <span>సెకన్లు</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GALLERY
+    ========================== -->
+
+    <section class="gallery" id="gallery">
+
+        <div class="section-title">
+
+            <small>📸 పండుగ జ్ఞాపకాలు</small>
+
+            <h2>
+                మన ఊరి గ్యాలరీ
+            </h2>
+
+            <p>
+                మన పండుగలోని అందమైన క్షణాలు
+            </p>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item large">
+
+                <img src="festival.jpg"
+                     alt="గణేష్ ఉత్సవం">
+
+            </div>
+
+
+            <div class="gallery-item">
+
+                <img src="villa2.jpg"
+                     alt="గ్రామ దృశ్యం">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="ganesh">
+            🐘
+        </div>
+
+        <h2>
+            గణపతి బప్పా మోరియా!
+        </h2>
+
+        <p>
+            మన ఊరు • మన పండుగ • మన ఐక్యత
+        </p>
+
+        <br>
+
+        <p>
+            © 2026 మన ఊరి గణేష్ మహోత్సవం
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /*
+         * ఇక్కడ మీ గణేష్ ఉత్సవం తేదీని మార్చండి.
+         *
+         * ఉదాహరణ:
+         * 2026-09-14T18:00:00
+         */
+
+        const festivalDate =
+            new Date("2026-09-14T18:00:00").getTime();
+
+
+        function updateCountdown() {
+
+            const now = new Date().getTime();
+
+            const distance =
+                festivalDate - now;
+
+
+            if (distance <= 0) {
+
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+
+                return;
+            }
+
+
+            const days =
+                Math.floor(
+                    distance /
+                    (1000 * 60 * 60 * 24)
+                );
+
+
+            const hours =
+                Math.floor(
+                    (distance %
+                    (1000 * 60 * 60 * 24)) /
+                    (1000 * 60 * 60)
+                );
+
+
+            const minutes =
+                Math.floor(
+                    (distance %
+                    (1000 * 60 * 60)) /
+                    (1000 * 60)
+                );
+
+
+            const seconds =
+                Math.floor(
+                    (distance %
+                    (1000 * 60)) /
+                    1000
+                );
+
+
+            document.getElementById("days")
+                .innerText =
+                String(days).padStart(2, "0");
+
+
+            document.getElementById("hours")
+                .innerText =
+                String(hours).padStart(2, "0");
+
+
+            document.getElementById("minutes")
+                .innerText =
+                String(minutes).padStart(2, "0");
+
+
+            document.getElementById("seconds")
+                .innerText =
+                String(seconds).padStart(2, "0");
+
+        }
+        
+
+
+        updateCountdown();
+
+        setInterval(updateCountdown, 1000);
+    
+
+        
+
+    </script>
+<div class="center">
+    <video width="300" height="500" controls>
+        <source src="WhatsApp Video 2026-09-06 at 21.38.14 (1).mp4" type="video/mp4"></video></div>
+    
+
+</body>
+</html>
